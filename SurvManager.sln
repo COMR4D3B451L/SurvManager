@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurvManager", "SurvManager\SurvManager.csproj", "{9F64A2F7-4543-479A-81EE-F827442A3CF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F64A2F7-4543-479A-81EE-F827442A3CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F64A2F7-4543-479A-81EE-F827442A3CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F64A2F7-4543-479A-81EE-F827442A3CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F64A2F7-4543-479A-81EE-F827442A3CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDEB7562-786A-4D93-BB85-06AB2062D98C}
+	EndGlobalSection
+EndGlobal

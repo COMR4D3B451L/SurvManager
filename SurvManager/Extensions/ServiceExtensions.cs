@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using SurvManager.Models;
+using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 
 namespace SurvManager.Extensions
 {
@@ -13,8 +15,17 @@ namespace SurvManager.Extensions
                         .AllowAnyHeader());
             });
 
-        public static void ConfigureIISIntegration(this IServiceCollection services) =>
+        public static void ConfigureIisIntegration(this IServiceCollection services) =>
             services.Configure<IISOptions>(option => {});
+
+        public static void ConfigureDbContext(this IServiceCollection services)
+        {
+            var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json").Build();
+            services.AddDbContext<ManagerContext>(options => options.UseNpgsql(configuration.GetConnectionString("Postgres")));
+
+        }
+
     }
 
     

@@ -12,8 +12,8 @@ using SurvManager.Models;
 namespace SurvManager.Migrations
 {
     [DbContext(typeof(ManagerContext))]
-    [Migration("20230218234930_initial")]
-    partial class initial
+    [Migration("20230219181337_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SurvManager.Models;
 
 namespace SurvManager.Controllers
 {
@@ -7,10 +8,16 @@ namespace SurvManager.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        [HttpGet]
-        public void GetProjects()
-        {
+        private readonly ManagerContext _context;
 
+        public ProjectsController(ManagerContext context)
+        {
+            _context = context;
+        }
+        [HttpGet]
+        public IEnumerable<Project> GetAllProjects()
+        {
+            return _context.Projects.ToList();
         }
     }
 }

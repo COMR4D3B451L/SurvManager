@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace SurvManager.Models
@@ -14,8 +15,9 @@ namespace SurvManager.Models
         public string Assign { get; set; } = string.Empty;
         public string Customer { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
+        [Required]
         public Guid CategoryId { get; set; }
         [JsonIgnore]
-        public virtual Category Category { get; set; }
+        public virtual Category? Category { get; set; }
     }
 }

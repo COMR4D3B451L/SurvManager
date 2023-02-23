@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SurvManager.Models;
 
 namespace SurvManager.Controllers
@@ -41,6 +42,51 @@ namespace SurvManager.Controllers
                 "GetProject",
                 new { id = project.Id },
                 project);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutProject(Guid id, Project project)
+        {
+            if (id != project.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(project).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Projects.Any(p => p.Id == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Project>> DeleteProject(Guid id)
+        {
+            var project = await _context.Projects.FindAsync(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            _context.Projects.Remove(project);
+            await _context.SaveChangesAsync();
+
+            return project;
         }
     }
 }

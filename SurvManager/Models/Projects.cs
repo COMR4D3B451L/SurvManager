@@ -6,9 +6,11 @@ namespace SurvManager.Models
 {
     public class Project
     {
+        [Required]
         public Guid Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime DueDate { get; set; }
+        [Required]
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
